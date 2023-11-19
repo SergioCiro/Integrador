@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package com.oficios.buscador.entidades;
 
 import java.util.Date;
@@ -23,10 +20,11 @@ public class Chat {
 
     private Long idJob;
     private String feedback;
-    @Temporal(TemporalType.TIMESTAMP)
+    @Temporal(TemporalType.DATE)
     private Date creationDate;
     private Boolean active;
     
     
     
 }
+    

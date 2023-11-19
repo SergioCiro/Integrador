@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="buscador">
+  <ClassDiagramComponents>
+    <Class name="BuscadorApplication" package="com.oficios.buscador" visibility="public" xPosition="3.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Chat" package="com.oficios.buscador.entidades" visibility="public" xPosition="231.0" yPosition="20.0">
+      <Fields>
+        <Field name="idChat" type="Long" visibility="private"/>
+        <Field name="idJob" type="Long" visibility="private"/>
+        <Field name="feedback" type="String" visibility="private"/>
+        <Field name="creationDate" type="Date" visibility="private"/>
+        <Field name="active" type="Boolean" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Client" package="com.oficios.buscador.entidades" visibility="public" xPosition="492.0" yPosition="332.0">
+      <Fields>
+        <Field name="idClient" type="Long" visibility="private"/>
+        <Field name="clientName" type="String" visibility="private"/>
+        <Field name="clientEmail" type="String" visibility="private"/>
+        <Field name="password" type="String" visibility="private"/>
+        <Field name="registrerDate" type="Date" visibility="private"/>
+        <Field name="active" type="Boolean" visibility="private"/>
+        <Field name="roll" type="Roll" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Job" package="com.oficios.buscador.entidades" visibility="public" xPosition="465.0" yPosition="20.0">
+      <Fields>
+        <Field name="idJob" type="Long" visibility="private"/>
+        <Field name="description" type="String" visibility="private"/>
+        <Field name="cost" type="Integer" visibility="private"/>
+        <Field name="client" type="Client" visibility="private"/>
+        <Field name="serviceProvided" type="ServiceProvided" visibility="private"/>
+        <Field name="startJobs" type="Date" visibility="private"/>
+        <Field name="endJobs" type="Date" visibility="private"/>
+        <Field name="active" type="Boolean" visibility="private"/>
+        <Field name="satus" type="Status" visibility="private"/>
+        <Field name="chats" type="List&lt;Chat&gt;" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="JobRating" package="com.oficios.buscador.entidades" visibility="public" xPosition="747.0" yPosition="20.0">
+      <Fields>
+        <Field name="idJobRating" type="Long" visibility="private"/>
+        <Field name="job" type="Job" visibility="private"/>
+        <Field name="calification" type="Integer" visibility="private"/>
+        <Field name="comment" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="ServiceProvided" package="com.oficios.buscador.entidades" visibility="public" xPosition="747.0" yPosition="294.0">
+      <Fields>
+        <Field name="idProvided" type="Long" visibility="private"/>
+        <Field name="providedName" type="String" visibility="private"/>
+        <Field name="providedEmail" type="String" visibility="private"/>
+        <Field name="password" type="String" visibility="private"/>
+        <Field name="registrerDate" type="Date" visibility="private"/>
+        <Field name="active" type="Boolean" visibility="private"/>
+        <Field name="trades" type="List&lt;Trade&gt;" visibility="private"/>
+        <Field name="jobs" type="List&lt;Job&gt;" visibility="private"/>
+        <Field name="level" type="ExperienceLevel" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Trade" package="com.oficios.buscador.entidades" visibility="public" xPosition="956.0" yPosition="198.0">
+      <Fields>
+        <Field name="idTrade" type="Long" visibility="private"/>
+        <Field name="tradeName" type="String" visibility="private"/>
+        <Field name="active" type="Boolean" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Enum name="ExperienceLevel" package="com.oficios.buscador.enumeraciones" visibility="public" xPosition="956.0" yPosition="400.0">
+      <Literals>
+        <Literal name="BEGINNER"/>
+        <Literal name="INTERMEDIATE"/>
+        <Literal name="ADVANCED"/>
+        <Literal name="EXPERT"/>
+      </Literals>
+    </Enum>
+    <Enum name="Roll" package="com.oficios.buscador.enumeraciones" visibility="public" xPosition="231.0" yPosition="419.0">
+      <Literals>
+        <Literal name="USER"/>
+        <Literal name="ADMIN"/>
+      </Literals>
+    </Enum>
+    <Enum name="Status" package="com.oficios.buscador.enumeraciones" visibility="public" xPosition="231.0" yPosition="227.0">
+      <Literals>
+        <Literal name="ACCEPTED"/>
+        <Literal name="REFUSED"/>
+        <Literal name="START"/>
+        <Literal name="END"/>
+      </Literals>
+    </Enum>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="trades" source="com.oficios.buscador.entidades.ServiceProvided" target="com.oficios.buscador.entidades.Trade" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Trade&gt;"/>
+    <HasRelation name="level" source="com.oficios.buscador.entidades.ServiceProvided" target="com.oficios.buscador.enumeraciones.ExperienceLevel" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="satus" source="com.oficios.buscador.entidades.Job" target="com.oficios.buscador.enumeraciones.Status" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="roll" source="com.oficios.buscador.entidades.Client" target="com.oficios.buscador.enumeraciones.Roll" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="jobs" source="com.oficios.buscador.entidades.ServiceProvided" target="com.oficios.buscador.entidades.Job" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Job&gt;"/>
+    <HasRelation name="client" source="com.oficios.buscador.entidades.Job" target="com.oficios.buscador.entidades.Client" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="serviceProvided" source="com.oficios.buscador.entidades.Job" target="com.oficios.buscador.entidades.ServiceProvided" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="chats" source="com.oficios.buscador.entidades.Job" target="com.oficios.buscador.entidades.Chat" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Chat&gt;"/>
+    <HasRelation name="job" source="com.oficios.buscador.entidades.JobRating" target="com.oficios.buscador.entidades.Job" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

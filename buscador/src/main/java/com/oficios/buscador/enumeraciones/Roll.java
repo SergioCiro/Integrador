@@ -6,7 +6,7 @@ public enum Roll {
     
      
  USER,
- ADMIN
+ ADMIN;
      
  
     

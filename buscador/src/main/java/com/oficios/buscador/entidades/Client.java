@@ -27,7 +27,7 @@ public class Client {
     private String clientEmail;
     private String password;
 
-    @Temporal(TemporalType.TIMESTAMP)
+    @Temporal(TemporalType.DATE)
     private Date registrerDate;
     private Boolean active = true;
 

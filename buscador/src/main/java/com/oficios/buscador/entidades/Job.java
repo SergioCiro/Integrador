@@ -34,10 +34,10 @@ public class Job {
 
 //    @OneToOne(mappedBy = "job")
 //    private JobRating jobRating;
-    @Temporal(TemporalType.TIMESTAMP)
+    @Temporal(TemporalType.DATE)
     private Date startJobs;
 
-    @Temporal(TemporalType.TIMESTAMP)
+    @Temporal(TemporalType.DATE)
     private Date endJobs;
 
     private Boolean active = true;

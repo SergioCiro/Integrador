@@ -7,7 +7,7 @@ public enum Status {
     ACCEPTED,
     REFUSED,
     START,
-    END
+    END;
    
     
 }
